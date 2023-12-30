@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-form {
+            font-size: 18px;
+            border: 1px solid #4CAF50;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .alert {
+            font-size: 16px;
+            padding: 12px;
+            margin-bottom: 10px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .error {
+            background-color: #f44336;
+        }
+
+        .success {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <div id="message" class="alert"></div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "User1" && password === "Password") {
+                window.location.href = "/successful-login";
+            } else {
+                showError("Invalid username or password");
+            }
+        }
+
+        function showError(message) {
+            var messageElement = document.getElementById("message");
+            messageElement.innerHTML = message;
+            messageElement.className = "alert error";
+        }
+    </script>
+</body>
+</html>
